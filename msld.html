@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="jquery-1.9.1.js"></script>
+<style>
+	body{margin: 0;}
+	.qc{float: none;clear: both;}
+	a{color: black;text-decoration: none;}
+	ul{margin: 0;padding: 0;list-style: none;}
+	img{display: block}
+	h1,h2,h3,h4,h5,h6{margin: 0;padding: 0;font-weight: normal;font-family: 微软雅黑;}
+	.fl{float: left}
+	.fr{float: right}
+	.top{position: fixed;width: 100%;background:#fff;z-index: 99}
+	.top a{padding: 0 20px;line-height: 100px;font-size: 18px;}
+	.topl{float: left;}
+	.topl li{float: left;margin-left: 20px;}
+	.topnav{float: right;width: 21px;height: 21px;background-color: aqua;margin-right: 30px;margin-top: 13px;background:url(img/glt.png) -29px 0;display: none}
+	.topr{float: right;margin-right: 20px;}
+	.toplogo{width: 8%;margin: 0 auto;cursor: pointer}
+	.bga {
+		top: 100px;
+	}
+	.toplogo img{width: 100%; margin: 10px 0;}
+	@media(max-width:1366px){
+		.top a{font-size: 12px;line-height: 75px}
+	}
+	@media(max-width:1000px){
+		.topl{display: none;}
+		.topr{display: none;}
+		.topnav{display: block;cursor: pointer}
+	}
+	/* .bga{position: relative;color: white;font-weight: normal;top: -100px;border: red solid;} */
+	.bga{position: relative;color: white;font-weight: normal;border: red solid;}
+	.bga img{width: 100%;}
+	.bga_l{margin-left:  60px;position: absolute;bottom:0;width: 90%;}
+	.bga_la{font-size: 33px;margin-right: 30px;}
+	.bga_lb{border-left: 1px solid #ccc;font-size: 18px;padding-left: 30px;padding-bottom: 39px}
+	.bga_lb input{width: 120px;height: 28px;border: none;border-radius: 3px;text-align: center;margin-top: 15px}
+	.bga_r{background: url(img/glt.png) 74px 41px;padding-right: 39px ;padding-top: 39px}
+	.bgb{position: relative;top: -85px;margin-left: 39px;display: none;}
+	.bgb h1{font-size: 33px;line-height:33px;}
+	.bgb h5{font-size: 18px;line-height: 50px}
+	.bgb input{width: 88px;height: 25px;text-align: center;background:#0b2749;color: aliceblue; border: none;border-radius: 3px;}
+	@media(max-width:800px){
+		.bga_l{display: none;}
+		.bgb{display: block;top: 15px}
+		.bga{top: 0}
+	}
+	.chexin{position: relative;top: -100px}
+	.chexin h1{font-size: 39px;color:#333;display: inline; line-height: 100px}
+	#show {
+		overflow: hidden;
+	}
+	
+</style>
+</head>
+
+<body>
+<div class="top">
+	<div class="topl">
+		<ul>
+			<li><a href="">品牌</a></li>
+			<li><a href="">车型</a></li>
+			<li><a href="">工具 & 服务</a></li>
+		</ul>
+	</div>
+	<div class="topnav">
+		
+	</div>
+	<div class="topr">
+		<a href="">新闻</a>
+	</div>
+	<div class="toplogo">
+		<img src="img/mobile-header-logo.svg">
+	</div>
+	
+	<div class="qc"></div>
+	
+</div>
+<div class="bga">
+	<div id="show"><img src="img/bga.jpg"></div>
+	<div class="bga_l">
+		<div class="bga_la fl">Ghibli轿车系列</div>
+		<div class="bga_lb fl">
+			<h5>卓尔不凡</h5>
+			<input type="text" value="了解更多">
+		</div>
+		<div class="bga_r fr">向下滚动</div>
+	</div>
+</div>
+<div class="bgb">
+	<h1>Ghibli轿车系列</h1>
+	<h5>卓尔不凡</h5>
+	<input type="text" value="了解更多">
+</div>
+<div class="chexin">
+	<div><h1>车型</h1>每一辆玛莎拉蒂均采用手工工艺精心雕琢细节</div>
+</div>
+<script src="jquery-1.9.1.js"></script>
+<script>
+var $top = $('.top');//顶部div
+var $bga = $(".bga"); //总的轮廓图
+var top_height = $top.height(); //顶部的高度
+var Bheight = innerHeight;//可视区浏览器的高度
+var showHeight = Bheight - top_height;//图片可展示的区域
+var $show = $("#show");//图片展示的div
+var show_height = $show.height();//图片展示的div的高度
+
+function run () {
+	var Bheight = innerHeight;//可视区浏览器的高度
+	console.log(Bheight);
+	// var showHeight = Bheight - top_height;//图片可展示的区域
+	// $show.css('height', showHeight + 'px');
+
+	var showHeight = Bheight - top_height;//图片可展示的区域
+	var showH02 = (show_height -  showHeight) / 2;
+	$show.css('height', showHeight + showH02 + 'px');
+	$bga.css('top', 100 - showH02 +'px');
+};
+run ();
+$(window).resize(function () {          //当浏览器大小变化时
+	run ();
+	
+});
+
+
+</script>
+</body>
+</html>
